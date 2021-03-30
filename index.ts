@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import * as Discord from "discord.js";
 import HTTPFrontend from "./src/frontends/HTTPFrontend";
 import FTPFrontend from "./src/frontends/FTPFrontend";

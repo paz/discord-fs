@@ -1,7 +1,6 @@
 import Journal from "../Journal";
 import * as Mode from "stat-mode";
-var fuse = require('fuse-bindings')
-
+var fuse = require('node-fuse-bindings')
 
 class FileAttributes{
     constructor(){

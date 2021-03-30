@@ -14,13 +14,14 @@
     "@types/node": "^10.12.18",
     "connect-busboy": "0.0.2",
     "discord.js": "11.4.2",
+    "dotenv": "^8.2.0",
     "express": "^4.16.4",
     "fixed-size-stream-splitter": "^1.1.0",
     "mime-types": "^2.1.21",
     "multistream": "^2.1.1",
+    "node-fuse-bindings": "^2.12.4",
     "simple-ftpd": "git+https://github.com/fr34kyn01535/simple-ftpd.git",
     "stat-mode": "^0.2.2",
-    "uuid": "^3.3.2",
-    "fuse-bindings": "^2.11.2"
+    "uuid": "^3.3.2"
   }
 }
