@@ -1,4 +1,4 @@
-
+import 'dotenv/config';
 import * as express from "express";
 import * as mime from "mime-types";
 import * as busboy from "connect-busboy";
@@ -42,11 +42,10 @@ export default class HTTPFrontend{
         
             function upload(){
                 journal.CreateFile(path.join(root, fileName)).then(stream => {
-                    stream.on('close', () => {
-                        res.send(200).end();
-                    });
                     file.pipe(stream);
-                });
+                }).then(() => {
+                    res.redirect(301, path.join(root, fileName));
+                })
             }
         
             (<any>req).busboy.on('field', function(fieldname, p) {

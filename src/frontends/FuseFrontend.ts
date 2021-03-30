@@ -81,8 +81,7 @@ export default class FuseFrontend{
             console.log(pathName, arguments);
             this.journal.Download(file).then((stream)=>{
                 stream.on('data', (data)=> {
-                    console.log(data);
-                    buffer.write(data);
+                    buffer.write(data.toString("utf8"));
                 });
                 stream.on('end', function(){
                     cb(0);
@@ -94,6 +93,14 @@ export default class FuseFrontend{
     }
 
     public Mount(mountPath : string){
+
+        fuse.unmount(mountPath, function (err) {
+            if (err) {
+                console.log('Filesystem at ' + mountPath + ' not unmounted', err)
+            } else {
+                console.log('Filesystem at ' + mountPath + ' unmounted')
+            }
+        })
 
         fuse.mount(mountPath, {
             readdir: this.readdir.bind(this),

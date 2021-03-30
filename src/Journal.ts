@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import * as crypto from "crypto";
 import * as Discord from "discord.js";
 import * as split from "fixed-size-stream-splitter";
@@ -225,7 +226,7 @@ export default class Journal {
     public async CreateFile(filePath: string): Promise<Stream> {
         var j = 0;
         var that = this;
-        return Promise.resolve(split(8e+6, function (stream) {
+        return Promise.resolve(split(parseFloat(process.env.SIZE), function (stream) {
             if(that.aesKey != null){
                 var iv = crypto.randomBytes(16);
                 that.createFile(filePath + (j == 0 ? "" : ".part"+ j),stream.pipe(that.getCipher(iv)),iv);
